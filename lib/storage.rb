@@ -6,7 +6,7 @@ class Storage
   end
 
   def self.create(params)
-    self.data= params
+    self.data = params
   end
 
   def self.data=(params)

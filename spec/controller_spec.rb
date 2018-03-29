@@ -4,7 +4,7 @@ describe App do
   include Rack::Test::Methods
 
   subject(:app)          { described_class }
-  let(:params)           { { "somekey" => 'somevalue' } }
+  let(:params)           { { 'somekey' => 'somevalue' } }
   let(:query_parameters) { '?somekey=somevalue' }
 
   describe '/set' do
@@ -23,7 +23,7 @@ describe App do
 
     it 'returns the stored data' do
       get "/set#{query_parameters}"
-      
+
       expect(last_response.body).to eq(params.to_s)
     end
   end
