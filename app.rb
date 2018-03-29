@@ -3,7 +3,7 @@ require 'sinatra/base'
 class App < Sinatra::Base
 
   get '/' do
-    p "Hello world"
+    p "Hello World"
   end
 
 end
