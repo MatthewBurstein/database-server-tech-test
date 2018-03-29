@@ -12,12 +12,12 @@ class App < Sinatra::Base
     @data = params
   end
 
-  get '/' do
-    p "Hello World"
-  end
-
   get '/set' do
     self.class.data = params
+  end
+
+  get '/get' do
+    self.class.data[params[:key]]
   end
 
 end
