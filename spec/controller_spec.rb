@@ -3,7 +3,9 @@ require_relative '../app.rb'
 describe App do
   include Rack::Test::Methods
 
-  subject(:app) { described_class }
+  subject(:app)          { described_class }
+  let(:params)           { { "somekey" => 'somevalue' } }
+  let(:query_parameters) { '?somekey=somevalue' }
 
   describe '/set' do
     it 'the route exists' do
@@ -14,15 +16,21 @@ describe App do
     end
 
     it 'calls Storage.create(params)' do
-      expect(Storage).to receive(:create).with({ "somekey" => 'somevalue' })
+      expect(Storage).to receive(:create).with(params)
 
-      get '/set?somekey=somevalue'
+      get "/set#{query_parameters}"
+    end
+
+    it 'returns the stored data' do
+      get "/set#{query_parameters}"
+      
+      expect(last_response.body).to eq(params.to_s)
     end
   end
 
   describe '/get' do
     before do
-      get '/set?somekey=somevalue'
+      get "/set#{query_parameters}"
     end
 
     it 'the route exists' do

@@ -4,7 +4,8 @@ require_relative 'lib/storage'
 class App < Sinatra::Base
 
   get '/set' do
-    Storage.create params unless params.empty?
+    Storage.create(params)
+    params.to_s
   end
 
   get '/get' do
