@@ -23,7 +23,7 @@ describe App do
 
     it 'stores the params in memory' do
       get '/set?somekey=somevalue'
-      expect(app.data).to eq({ somekey: 'somevalue' })
+      expect(app.data).to eq({ "somekey" => 'somevalue' })
     end
   end
 end

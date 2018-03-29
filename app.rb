@@ -17,7 +17,7 @@ class App < Sinatra::Base
   end
 
   get '/set' do
-
+    self.class.data = params
   end
 
 end
