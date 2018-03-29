@@ -1,8 +1,8 @@
 class Storage
   @data = {}
 
-  def self.data
-    @data
+  def self.find(key)
+    @data[key]
   end
 
   def self.create(params)

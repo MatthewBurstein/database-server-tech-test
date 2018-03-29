@@ -1,13 +1,17 @@
 require 'storage'
 
 describe Storage do
-  subject(:storage) { described_class }
+  subject(:storage)  { described_class }
+  let(:initial_data) { { 'initial key' => 'initial value' } }
+  let(:test_params)  { { 'test key' => 'test value' } }
 
-  let(:test_params) { { test_key: 'test_value' } }
+  describe '.find' do
+    before do
+      storage.create(initial_data)
+    end
 
-  describe '.data' do
-    it 'returns App.data' do
-      expect(storage.data).to eq({})
+    it 'returns value for the passed key' do
+      expect(storage.find('initial key')).to eq 'initial value'
     end
   end
 

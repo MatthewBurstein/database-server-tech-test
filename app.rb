@@ -1,23 +1,14 @@
 require 'sinatra/base'
+require_relative 'lib/storage'
 
 class App < Sinatra::Base
 
-  @data = {}
-
-  def self.data
-    @data
-  end
-
-  def self.data=(params)
-    @data = params
-  end
-
   get '/set' do
-    self.class.data= params
+    Storage.create params unless params.empty?
   end
 
   get '/get' do
-    self.class.data[params[:key]]
+    Storage.find(params[:key])
   end
 
 end
