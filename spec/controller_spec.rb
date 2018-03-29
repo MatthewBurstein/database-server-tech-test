@@ -15,8 +15,15 @@ describe App do
     expect(last_response.body).to eq "Hello World"
   end
 
-  it 'receives requests at /set?somekey=somevalue' do
-    get'/set', test_key: 'test value'
-    expect(last_response).to be_ok
+  describe '/set' do
+    it 'receives requests at /set' do
+      get'/set'
+      expect(last_response).to be_ok
+    end
+
+    it 'stores the params in memory' do
+      get '/set?somekey=somevalue'
+      expect(app.data).to eq({ somekey: 'somevalue' })
+    end
   end
 end
