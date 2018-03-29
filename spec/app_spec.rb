@@ -11,4 +11,11 @@ describe App do
     end
   end
 
+  describe '.data=' do
+    it 'sets App.data' do
+      app.data=(test_params)
+      expect(app.data).to eq test_params
+    end
+  end
+
 end

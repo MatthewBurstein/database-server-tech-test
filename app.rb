@@ -8,6 +8,10 @@ class App < Sinatra::Base
     @data
   end
 
+  def self.data=(params)
+    @data = params
+  end
+
   get '/' do
     p "Hello World"
   end
