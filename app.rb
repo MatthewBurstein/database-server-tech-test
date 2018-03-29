@@ -13,7 +13,7 @@ class App < Sinatra::Base
   end
 
   get '/set' do
-    self.class.data = params
+    self.class.data= params
   end
 
   get '/get' do

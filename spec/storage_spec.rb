@@ -11,11 +11,9 @@ describe Storage do
     end
   end
 
-  describe '.data=' do
-    it 'sets App.data' do
-      storage.data=(test_params)
-      expect(storage.data).to eq test_params
+  describe '.create' do
+    it 'stores the data in the Storage class' do
+      expect(storage.create(test_params)).to eq test_params
     end
   end
-
 end
