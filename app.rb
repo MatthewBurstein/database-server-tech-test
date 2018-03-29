@@ -6,4 +6,8 @@ class App < Sinatra::Base
     p "Hello World"
   end
 
+  get '/set' do
+    
+  end
+
 end

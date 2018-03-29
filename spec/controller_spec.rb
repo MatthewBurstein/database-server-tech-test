@@ -14,4 +14,9 @@ describe App do
     expect(last_response).to be_ok
     expect(last_response.body).to eq "Hello World"
   end
+
+  it 'receives requests at /set?somekey=somevalue' do
+    get'/set', test_key: 'test value'
+    expect(last_response).to be_ok
+  end
 end
