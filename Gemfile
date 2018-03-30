@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-
 gem 'rubocop', require: false
+gem 'sinatra'
 
 group :test do
   gem 'rack-test'
   gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
